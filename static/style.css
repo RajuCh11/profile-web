@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg,#0f172a,#020617);
+  color: white;
+  scroll-behavior: smooth;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+/* GLASS */
+.glass {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  justify-content: space-around;
+  padding: 50px;
+}
+
+.hero img {
+  width: 200px;
+  border-radius: 50%;
+}
+
+/* BUTTON */
+.btn {
+  background: cyan;
+  padding: 10px 20px;
+  color: black;
+}
+
+/* SKILLS */
+.skills span {
+  background: #1e293b;
+  padding: 10px;
+  margin: 5px;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+/* 🔥 Hover Effect */
+.skills span:hover {
+  transform: scale(1.1);
+  background: cyan;
+  color: black;
+}
+
+/* DASHBOARD */
+#chart {
+  max-width: 600px;
+  margin: auto;
+}
+
+/* CHAT */
+#chatbox {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #1e293b;
+  padding: 15px;
+  width: 250px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+}
