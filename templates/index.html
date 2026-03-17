@@ -2,26 +2,20 @@
 <html>
 <head>
   <title>Raju | DevOps Engineer</title>
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-
-  <!-- AOS -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
-
-  <!-- Chart -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 
   <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 
+<div id="particles-js"></div>
+
 <header>
   <h2>Raju.dev</h2>
   <nav>
-    <a href="#home">Home</a>
     <a href="#skills">Skills</a>
     <a href="#dashboard">Dashboard</a>
     <a href="#contact">Contact</a>
@@ -29,36 +23,41 @@
 </header>
 
 <!-- HERO -->
-<section id="home" class="hero glass">
-  <div data-aos="fade-right">
+<section class="hero">
+  <div class="hero-text">
     <h1>Hi, I'm <span>Raju Challa</span></h1>
-    <p id="typing"></p>
-    <a href="#" class="btn">Download Resume</a>
+    <p>DevOps Engineer | AWS | Kubernetes | Terraform</p>
   </div>
 
-  <img src="/static/profile.jpg" data-aos="fade-left">
+  <!-- PROFILE IMAGE -->
+  <img src="/static/profile.jpg" id="profile" onclick="expandProfile()">
 </section>
+
+<!-- EXPANDED PROFILE -->
+<div id="profileModal" onclick="closeProfile()">
+  <img src="/static/profile.jpg">
+  <h2>Raju Challa</h2>
+  <p>DevOps Engineer | AWS | Kubernetes | Terraform</p>
+</div>
 
 <!-- SKILLS -->
 <section id="skills">
-  <h2 data-aos="fade-up">Skills</h2>
-
+  <h2>Skills</h2>
   <div class="skills">
-    <span data-aos="zoom-in">AWS</span>
-    <span data-aos="zoom-in">Docker</span>
-    <span data-aos="zoom-in">Kubernetes</span>
-    <span data-aos="zoom-in">Terraform</span>
-    <span data-aos="zoom-in">Jenkins</span>
+    <span>AWS</span>
+    <span>Docker</span>
+    <span>Kubernetes</span>
+    <span>Terraform</span>
+    <span>Jenkins</span>
   </div>
 </section>
 
 <!-- DASHBOARD -->
-<section id="dashboard" data-aos="fade-up">
+<section id="dashboard">
   <h2>DevOps Dashboard</h2>
-
   <canvas id="chart"></canvas>
 
-  <div class="status glass">
+  <div class="status">
     <p>CPU: <span id="cpu"></span>%</p>
     <p>Pods: <span id="pods"></span></p>
     <p>Status: <span id="status"></span></p>
@@ -66,24 +65,11 @@
 </section>
 
 <!-- CONTACT -->
-<section id="contact" data-aos="fade-up">
+<section id="contact">
   <h2>Contact</h2>
   <p>Email: challaraju112@gmail.com</p>
 </section>
 
-<!-- CHATBOT -->
-<div id="chatbox">
-  <h3>Ask Me 🤖</h3>
-  <div id="messages"></div>
-  <input id="input" placeholder="Ask something...">
-</div>
-
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="/static/script.js"></script>
-
-<script>
-AOS.init({ duration: 1000 });
-</script>
-
 </body>
 </html>
