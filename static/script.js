@@ -1,19 +1,27 @@
-// 🔥 Typing Animation
-const text = "DevOps Engineer | AWS | Kubernetes | Terraform";
-let i = 0;
-
-function typing() {
-  if (i < text.length) {
-    document.getElementById("typing").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typing, 50);
+// 🌌 Background
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 60 },
+    size: { value: 3 },
+    move: { speed: 1 },
+    line_linked: { enable: true }
   }
+});
+
+// 📸 Expand profile
+function expandProfile() {
+  document.getElementById("profileModal").style.display = "block";
 }
-typing();
+
+// ❌ Close profile
+function closeProfile() {
+  document.getElementById("profileModal").style.display = "none";
+}
 
 // 📊 Chart
 const ctx = document.getElementById('chart');
-let chart = new Chart(ctx, {
+
+new Chart(ctx, {
   type: 'line',
   data: {
     labels: ['1','2','3','4','5'],
@@ -25,36 +33,9 @@ let chart = new Chart(ctx, {
   }
 });
 
-// 🔄 Real-time update
-setInterval(async () => {
-  let res = await fetch("/metrics");
-  let data = await res.json();
-
-  document.getElementById("cpu").innerText = data.cpu;
-  document.getElementById("pods").innerText = data.pods;
-  document.getElementById("status").innerText = data.status;
-
-  chart.data.datasets[0].data.push(data.cpu);
-  chart.data.datasets[0].data.shift();
-  chart.update();
-
+// 🔄 Dummy real-time
+setInterval(() => {
+  document.getElementById("cpu").innerText = Math.floor(Math.random()*50+30);
+  document.getElementById("pods").innerText = Math.floor(Math.random()*5+3);
+  document.getElementById("status").innerText = "Healthy";
 }, 3000);
-
-// 🤖 Chatbot
-document.getElementById("input").addEventListener("keypress", async (e)=>{
-  if(e.key==="Enter"){
-    let msg=e.target.value;
-
-    let res=await fetch("/chat",{
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({message:msg})
-    });
-
-    let data=await res.json();
-
-    document.getElementById("messages").innerHTML += `<p>You: ${msg}</p>`;
-    document.getElementById("messages").innerHTML += `<p>Bot: ${data.reply}</p>`;
-    e.target.value="";
-  }
-});
